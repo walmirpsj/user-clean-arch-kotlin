@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: user-api
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+api:
+  project:
+    version: @project.version@
+
+logging:
+  level:
+    br:
+      com:
+        user:
+          api: debug
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
